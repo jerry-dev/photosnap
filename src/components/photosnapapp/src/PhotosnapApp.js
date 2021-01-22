@@ -1,10 +1,10 @@
 import SiteHeader from '../../siteheader/src/SiteHeader.js';
+import SiteFooter from '../../sitefooter/src/SiteFooter.js';
 
 class PhotosnapApp extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: 'open'});
-        console.log('app loaded');
     }
 
     connectedCallback() {
@@ -12,8 +12,24 @@ class PhotosnapApp extends HTMLElement {
     }
 
     render() {
-        this.shadowRoot.innerHTML = `
-            <site-header></site-header>
+        this.html();
+        // this.css();
+    }
+
+    html() {
+        this.shadowRoot.innerHTML += `
+            <div id="appContainer">
+                <site-header></site-header>
+                <site-footer></site-footer>
+            <div>
+        `;
+    }
+
+    css() {
+        this.shadowRoot.innerHTML += `
+            <style>
+                *, *::before, *::after { padding: 0; margin: 0; }
+            </style>
         `;
     }
 }

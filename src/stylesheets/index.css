@@ -10,6 +10,7 @@
     --font-size-3: 18px;
     --font-size-4: 24px;
     --font-size-5: 40px;
+    --letter-spacing-1: 2px;
     --line-height-1: 16px;
     --line-height-2: 25px;
     --line-height-3: 48px;
@@ -29,10 +30,16 @@ html {
 body {
     min-height: 100%;
     font-family: 'DM Sans';
+    background-color: var(--pure-white);
 }
 
 #app-wrapper {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+img:not([alt]) {
+    outline: 2px dashed pink;
 }
