@@ -45,7 +45,6 @@ export default class SiteHeader extends HTMLElement {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                    OUTLINE: 1PX SOLID BLUE;
                 }
 
                 :host > #siteHeaderContainer > #logo {
@@ -71,6 +70,10 @@ export default class SiteHeader extends HTMLElement {
                     margin-right: 37px;
                 }
 
+                :host > #siteHeaderContainer > ul > li:hover {
+                    opacity: 0.3;
+                }
+
                 :host > #siteHeaderContainer > button {
                     color: var(--pure-white);
                     cursor: pointer;
@@ -78,9 +81,15 @@ export default class SiteHeader extends HTMLElement {
                     background-color: var(--pure-black);
                     border: none;
                     font-size: var(--font-size-1);
+                    font-weight: bold;
                     height: 40px;
                     letter-spacing: var(--letter-spacing-1);
                     width: 158px;
+                }
+
+                :host > #siteHeaderContainer > button:hover {
+                    color: rgba(0, 0, 0, 1);
+                    background-color: var(--light-grey);
                 }
             </style>
         `;

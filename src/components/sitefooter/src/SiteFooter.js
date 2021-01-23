@@ -27,7 +27,7 @@ export default class SiteFooter extends HTMLElement {
                     </linearGradient>
                     </defs>
                 </svg>
-                <ul>
+                <ul id="pageLinks">
                     <li>HOME</li>
                     <li>STORIES</li>
                     <li>FEATURES</li>
@@ -41,100 +41,32 @@ export default class SiteFooter extends HTMLElement {
                     </svg>                    
                 </a>
                 <ul id="socialLinks">
-                    <li><img src="../src/assets/shared/desktop/white/facebook.svg" alt=""></li>
-                    <li><img src="../src/assets/shared/desktop/white/youtube.svg" alt=""></li>
-                    <li><img src="../src/assets/shared/desktop/white/twitter.svg" alt=""></li>
-                    <li><img src="../src/assets/shared/desktop/white/pinterest.svg" alt=""></li>
-                    <li><img src="../src/assets/shared/desktop/white/instagram.svg" alt=""></li>
+                    <li>
+                        <img class="white" src="../src/assets/shared/desktop/white/facebook.svg" alt="facebook icon">
+                        <img class="color" src="../src/assets/shared/desktop/facebook.svg" alt="facebook icon">
+                    </li>
+                    <li>
+                        <img class="white" src="../src/assets/shared/desktop/white/youtube.svg" alt="youtube icon">
+                        <img class="color" src="../src/assets/shared/desktop/youtube.svg" alt="youtube icon">
+                    </li>
+                    <li>
+                        <img class="white" src="../src/assets/shared/desktop/white/twitter.svg" alt="twitter icon">
+                        <img class="color" src="../src/assets/shared/desktop/twitter.svg" alt="twitter icon">
+                    </li>
+                    <li>
+                        <img class="white" src="../src/assets/shared/desktop/white/pinterest.svg" alt="pinterest icon">
+                        <img class="color" src="../src/assets/shared/desktop/pinterest.svg" alt="pinterest icon">
+                    </li>
+                    <li>
+                        <img class="white" src="../src/assets/shared/desktop/white/instagram.svg" alt="instagram icon">
+                        <img class="color" src="../src/assets/shared/desktop/instagram.svg" alt="instagram icon">
+                    </li>
                 </ul>
+                <small>Copyright 2019. All Rights Reserved</small>
             </div>
             
         `;
     }
-
-    
-
-    // css() {
-    //     this.shadowRoot.innerHTML += `
-    //         <style>
-    //             *, *::before, *::after { padding: 0; margin: 0; }
-
-    //             :host {
-    //                 background-color: var(--pure-black);
-    //                 display: block;
-    //                 padding-top: 66px;
-    //                 padding-bottom: 62px;
-    //                 padding-left: 169px;
-    //                 padding-right: 167px;
-    //                 OUTLINE: 1PX SOLID RED;
-    //             }
-
-    //             :host > #siteFooterContainer {
-    //                 display: flex;
-    //                 flex-direction: row;
-    //                 flex-wrap: wrap;
-    //                 justify-content: space-between;
-    //                 OUTLINE: 1PX SOLID BLUE;
-    //             }
-
-    //             :host > #siteFooterContainer > #logo {
-    //                 height: 16px;
-    //                 Xmargin-right: 109px;
-    //                 width: 170px;
-    //             }
-
-    //             :host > #siteFooterContainer > ul {
-    //                 display: flex;
-    //                 flex-direction: column;
-    //                 list-style: none;
-    //                 Xmargin-right: 402px;
-    //             }
-
-    //             :host > #siteFooterContainer > ul > li {
-    //                 color: var(--pure-white);
-    //                 cursor: pointer;
-    //                 font-size: var(--font-size-1);
-    //                 font-weight: bold;
-    //                 letter-spacing: var(--letter-spacing-1);
-    //                 light-height: var(--line-height-1);
-    //                 width: 255px;
-    //             }
-
-    //             :host > #siteFooterContainer > ul > li:not(:last-child) {
-    //                 margin-bottom: 19px;
-    //             }
-
-    //             :host > #siteFooterContainer > #cta {
-    //                 align-items: center;
-    //                 color: var(--pure-white);
-    //                 cursor: pointer;
-    //                 display: flex;
-    //                 max-width: 168px;
-    //                 max-height: 16px;
-    //                 text-decoration: none;
-    //             }
-
-    //             :host > #siteFooterContainer > #cta > p {
-    //                 font-size: var(--font-size-1);
-    //                 letter-spacing: var(--letter-spacing-1);
-    //                 margin-right: 16px;
-    //                 white-space: nowrap;
-    //             }
-
-    //             :host > #siteFooterContainer > #socialLinks {
-    //                 display: flex;
-    //                 flex-direction: row;
-    //                 list-style: none;
-    //             }
-
-    //             :host > #siteFooterContainer > #socialLinks > li {
-    //                 cursor: pointer;
-    //                 height: 25px;
-    //                 width: 25px;
-    //             }
-    //         </style>
-    //     `;
-    // }
 
     css() {
         this.shadowRoot.innerHTML += `
@@ -148,36 +80,40 @@ export default class SiteFooter extends HTMLElement {
                     padding-bottom: 62px;
                     padding-left: 169px;
                     padding-right: 167px;
-                    OUTLINE: 1PX SOLID RED;
                 }
 
                 :host > #siteFooterContainer {
                     display: grid;
-                    grid-template-columns: minmax(55.8px, 279px) 1fr minmax(51px, 255);
-                    OUTLINE: 1PX SOLID BLUE;
+                    grid-template-columns: minmax(55.8px, 279px) 1fr minmax(51px, 255px);
+                    grid-template-rows: repeat(2, 61px);
+                    max-height: 122px;
                 }
 
                 :host > #siteFooterContainer > #logo {
                     height: 16px;
-                    Xmargin-right: 109px;
                     width: 170px;
                 }
 
-                :host > #siteFooterContainer > ul {
+                :host > #siteFooterContainer > #pageLinks {
                     display: flex;
                     flex-direction: column;
                     list-style: none;
-                    Xmargin-right: 402px;
                 }
 
-                :host > #siteFooterContainer > ul > li {
+                :host > #siteFooterContainer > #pageLinks > li {
                     color: var(--pure-white);
                     cursor: pointer;
                     font-size: var(--font-size-1);
                     font-weight: bold;
+                    grid-column: 2;
+                    grid-row: 1 / span 2;
                     letter-spacing: var(--letter-spacing-1);
                     light-height: var(--line-height-1);
                     width: 255px;
+                }
+
+                :host > #siteFooterContainer > #pageLinks > li:hover {
+                    opacity: 0.3;
                 }
 
                 :host > #siteFooterContainer > ul > li:not(:last-child) {
@@ -189,6 +125,7 @@ export default class SiteFooter extends HTMLElement {
                     color: var(--pure-white);
                     cursor: pointer;
                     display: flex;
+                    margin-left: auto;
                     max-width: 168px;
                     max-height: 16px;
                     text-decoration: none;
@@ -201,16 +138,51 @@ export default class SiteFooter extends HTMLElement {
                     white-space: nowrap;
                 }
 
+                :host > #siteFooterContainer > #cta > p:hover {
+                    border-bottom: 1px solid var(--light-grey);
+                }
+
                 :host > #siteFooterContainer > #socialLinks {
                     display: flex;
                     flex-direction: row;
+                    grid-column: 1;
+                    grid-row: 2;
+                    height: 20px;
                     list-style: none;
+                    margin-top: auto;
+                    width: 153.32px;
                 }
 
-                :host > #siteFooterContainer > #socialLinks > li {
+                .color {
+                    display: none;
+                }
+
+                :host > #siteFooterContainer > #socialLinks > li:not(:last-child) {
+                    margin-right: 13.33px;
+                }
+
+                :host > #siteFooterContainer > #socialLinks > li:hover > .white {
+                    display: none;
+                }
+
+                :host > #siteFooterContainer > #socialLinks > li:hover > .color {
+                    display: block;
+                }
+
+                :host > #siteFooterContainer > #socialLinks > li > img {
                     cursor: pointer;
-                    height: 25px;
-                    width: 25px;
+                    height: 20px;
+                    width: 20px;
+                }
+
+                small {
+                    color: var(--pure-white);
+                    font-size: var(--font-size-2);
+                    grid-column: 3;
+                    grid-row: 2;
+                    margin-top: auto;
+                    margin-left: auto;
+                    opacity: 0.5;
                 }
             </style>
         `;
