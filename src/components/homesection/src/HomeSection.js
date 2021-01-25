@@ -24,21 +24,42 @@ export default class HomeSection extends HTMLElement {
                         stories and connect with others.
                     </p>
                     <a id="cta" href="#000">
-                    <p>GET AN INVITE</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="14" viewBox="0 0 42 14" fill="none">
-                    <path d="M0 7H41.864" stroke="white"/>
-                    <path d="M35.4282 1L41.4282 7L35.4282 13" stroke="white"/>
-                    </svg>                    
-                </a>
+                        <p>GET AN INVITE</p>
+                        <img class="arrowIcon" src="../src/assets/shared/desktop/white/arrow.svg">
+                    </a>
                 </span>
                 <span class="imageBox"></span>
             </div>
+
             <div id="row-2" class="row">
                 <span class="imageBox"></span>
-                <span class="descriptionBox"></span>
+                <span class="descriptionBox">
+                    <h2>BEAUTIFUL STORIES EVERY TIME</h2>
+                    <p>
+                        We provide design templates to ensure your stories
+                        look terrific. Easily add photos, text, embed maps
+                        and media from other networks. Then share your
+                        story with everyone.
+                    </p>
+                    <a id="cta" href="#000">
+                        <p>GET AN INVITE</p>
+                        <img class="arrowIcon" src="../src/assets/shared/desktop/arrow.svg">
+                    </a>
+                </span>
             </div>
+
             <div id="row-3" class="row">
-                <span class="descriptionBox"></span>
+                <span class="descriptionBox">
+                    <h2>DESIGNED FOR EVERYONE</h2>
+                    <p>
+                        Photosnap can help you create stories that resonate with your audience.  Our tool is designed for
+                        photographers of all levels, brands, businesses you name it. 
+                    </p>
+                    <a id="cta" href="#000">
+                        <p>GET AN INVITE</p>
+                        <img class="arrowIcon" src="../src/assets/shared/desktop/arrow.svg">
+                    </a>
+                </span>
                 <span class="imageBox"></span>
             </div>
         `;
@@ -54,44 +75,24 @@ export default class HomeSection extends HTMLElement {
                     flex-direction: row;
                 }
 
-                #row-1 > .descriptionBox {
-                    background-color: var(--pure-black);
-                    color: var(--pure-white);
-                    padding-left: 112px;
-                    padding-right: 111px;
-                    padding-top: 173px;
-                    padding-bottom: 173px;
-                    max-width: 387px;
-                    max-height: 304px;
-                }
-
-                #row-1 > .descriptionBox > h2 {
+                .row > .descriptionBox > h2 {
                     font-size: var(--font-size-5);
                     font-weight: bold;
                     letter-spacing: var(--letter-spacing-2);
+                    margin-bottom: 21px;
                 }
 
-                #row-1 > .descriptionBox > p {
+                .row > .descriptionBox > p {
                     font-size: var(--font-size-2);
                     line-height: 25px;
                     opacity: 0.6;
+                    margin-bottom: 48px;
                 }
-
-                #row-1 > .imageBox {
-                    background-image: url("../src/assets/home/desktop/create-and-share.jpg");
-                    background-position: center;
-                    height: 650px;
-                    padding-right: 57.64%;
-                }
-
-
 
                 #cta {
                     align-items: center;
-                    color: var(--pure-white);
                     cursor: pointer;
                     display: flex;
-                    margin-left: auto;
                     max-width: 168px;
                     max-height: 16px;
                     text-decoration: none;
@@ -106,6 +107,68 @@ export default class HomeSection extends HTMLElement {
 
                 #cta > p:hover {
                     border-bottom: 1px solid var(--light-grey);
+                }
+
+                #row-1 > .descriptionBox {
+                    background-color: var(--pure-black);
+                    color: var(--light-grey);
+                    padding-left: 112px;
+                    padding-right: 111px;
+                    padding-top: 173px;
+                    padding-bottom: 173px;
+                    max-width: 387px;
+                    max-height: 304px;
+                }
+
+                #row-1 > .descriptionBox > #cta {
+                    color: var(--pure-white);
+                }
+
+                #row-1 > .imageBox {
+                    background-image: url("../src/assets/home/desktop/create-and-share.jpg");
+                    background-position: center;
+                    height: 650px;
+                    padding-right: 57.64%;
+                }
+
+                #row-2 > .imageBox {
+                    background-image: url("../src/assets/home/desktop/beautiful-stories.jpg");
+                    background-position: center;
+                    height: 600px;
+                    padding-right: 57.64%;
+                }
+
+                #row-2 > .descriptionBox {
+                    padding-top: 136px;
+                    padding-left: 112px;
+                    padding-right: 111px;
+                    padding-bottom: 135px;
+                    max-width: 387px;
+                    max-height: 329px;                   
+                }
+
+                #row-2 > .descriptionBox > #cta {
+                    color: var(--pure-black);
+                }
+
+                #row-3 > .descriptionBox {
+                    padding-top: 160px;
+                    padding-left: 112px;
+                    padding-right: 111px;
+                    padding-bottom: 159px;
+                    max-width: 387px;
+                    max-height: 281px;                   
+                }
+
+                #row-3 > .descriptionBox > #cta {
+                    color: var(--pure-black);
+                }
+
+                #row-3 > .imageBox {
+                    background-image: url("../src/assets/home/desktop/designed-for-everyone.jpg");
+                    background-position: center;
+                    height: 600px;
+                    padding-right: 57.64%;
                 }
             </style>
         `;
