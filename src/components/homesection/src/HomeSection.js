@@ -1,3 +1,7 @@
+import HeroSection from '../../herosection/src/HeroSection.js';
+import StoryCard from '../../storycard/src/StoryCard.js';
+// import PersuasiveServiceDetails from '../../storycard/src/PersuasiveServiceDetails.js';
+
 export default class HomeSection extends HTMLElement {
     constructor() {
         super();
@@ -6,169 +10,81 @@ export default class HomeSection extends HTMLElement {
 
     connectedCallback() {
         this.render();
+        this.cardGenerator();
     }
 
-    render()  {
+    render() {
         this.html();
         this.css();
     }
 
-    html() {
-        this.shadowRoot.innerHTML += `
-            <div id="row-1" class="row">
-                <span class="descriptionBox">
-                    <h2>CREATE AND SHARE YOUR PHOTO STORIES.</h2>
-                    <p>
-                        Photosnap is a platform for photographers and visual
-                        storytellsers. We make it easy to share photos, tell
-                        stories and connect with others.
-                    </p>
-                    <a id="cta" href="#000">
-                        <p>GET AN INVITE</p>
-                        <img class="arrowIcon" src="../src/assets/shared/desktop/white/arrow.svg">
-                    </a>
-                </span>
-                <span class="imageBox"></span>
-            </div>
+    html()  {
+        let html = ``;
+        html += `<hero-section></hero-section>
+        <div id="storyCardsContainer">
+            ${this.cardGenerator()}
+        </div>`;
+        this.shadowRoot.innerHTML += html;
+    }
 
-            <div id="row-2" class="row">
-                <span class="imageBox"></span>
-                <span class="descriptionBox">
-                    <h2>BEAUTIFUL STORIES EVERY TIME</h2>
-                    <p>
-                        We provide design templates to ensure your stories
-                        look terrific. Easily add photos, text, embed maps
-                        and media from other networks. Then share your
-                        story with everyone.
-                    </p>
-                    <a id="cta" href="#000">
-                        <p>GET AN INVITE</p>
-                        <img class="arrowIcon" src="../src/assets/shared/desktop/arrow.svg">
-                    </a>
-                </span>
-            </div>
+    cardGenerator() {
+        const metaData = [
+            {
+                title: "The Mountains", author: "John Appleseed",
+                desktopImage: "../src/assets/stories/desktop/mountains.jpg",
+                tabletImage: "../src/assets/stories/table/mountains.jpg",
+                mobileImage: "../src/assets/stories/mobile/mountains.jpg"
+            },
+            {
+                title: "Sunset Cityscapes", author: "Benjamin Cruz",
+                desktopImage: "../src/assets/stories/desktop/cityscapes.jpg",
+                tabletImage: "../src/assets/stories/table/cityscapes.jpg",
+                mobileImage: "../src/assets/stories/mobile/cityscapes.jpg"
+            },
+            {
+                title: "18 Days Voyage", author: "Alexei Borodin",
+                desktopImage: "../src/assets/stories/desktop/18-days-voyage.jpg",
+                tabletImage: "../src/assets/stories/table/18-days-voyage.jpg",
+                mobileImage: "../src/assets/stories/mobile/18-days-voyage.jpg"
+            },
+            {
+                title: "Architecturals", author: "Samantha Brooke",
+                desktopImage: "../src/assets/stories/desktop/architecturals.jpg",
+                tabletImage: "../src/assets/stories/table/architecturals.jpg",
+                mobileImage: "../src/assets/stories/mobile/architecturals.jpg"
+            }
+        ];
 
-            <div id="row-3" class="row">
-                <span class="descriptionBox">
-                    <h2>DESIGNED FOR EVERYONE</h2>
-                    <p>
-                        Photosnap can help you create stories that resonate with your audience.  Our tool is designed for
-                        photographers of all levels, brands, businesses you name it. 
-                    </p>
-                    <a id="cta" href="#000">
-                        <p>GET AN INVITE</p>
-                        <img class="arrowIcon" src="../src/assets/shared/desktop/arrow.svg">
-                    </a>
-                </span>
-                <span class="imageBox"></span>
-            </div>
-        `;
+        let html = ``;
+
+        for (let i = 0; i < 4; i++) {
+            
+            html += `<story-card
+                title="${metaData[i].title}"
+                author="${metaData[i].author}"
+                desktopImage="${metaData[i].desktopImage}"
+                tabletImage="${metaData[i].tabletImage}"
+                mobileImage="${metaData[i].mobileImage}"
+            ></story-card>`;
+        }
+
+        return html;
     }
 
     css() {
         this.shadowRoot.innerHTML += `
             <style>
-                *, *::before, *::after { margin: 0, padding: 0; }
+                *, *::before, *::after { margin: 0; padding: 0; }
 
-                .row {
-                    display: flex;
-                    flex-direction: row;
+                #storyCardsContainer {
+                    display: grid;
+                    grid-template-columns: repeat(4, 25%);
+                    grid-template-row: 100%;
+                    height: 500px;
                 }
 
-                .row > .descriptionBox > h2 {
-                    font-size: var(--font-size-5);
-                    font-weight: bold;
-                    letter-spacing: var(--letter-spacing-2);
-                    margin-bottom: 21px;
-                }
-
-                .row > .descriptionBox > p {
-                    font-size: var(--font-size-2);
-                    line-height: 25px;
-                    opacity: 0.6;
-                    margin-bottom: 48px;
-                }
-
-                #cta {
-                    align-items: center;
-                    cursor: pointer;
-                    display: flex;
-                    max-width: 168px;
-                    max-height: 16px;
-                    text-decoration: none;
-                }
-
-                #cta > p {
-                    font-size: var(--font-size-1);
-                    letter-spacing: var(--letter-spacing-1);
-                    margin-right: 16px;
-                    white-space: nowrap;
-                }
-
-                #cta > p:hover {
-                    border-bottom: 1px solid var(--light-grey);
-                }
-
-                #row-1 > .descriptionBox {
-                    background-color: var(--pure-black);
-                    color: var(--light-grey);
-                    padding-left: 112px;
-                    padding-right: 111px;
-                    padding-top: 173px;
-                    padding-bottom: 173px;
-                    max-width: 387px;
-                    max-height: 304px;
-                }
-
-                #row-1 > .descriptionBox > #cta {
-                    color: var(--pure-white);
-                }
-
-                #row-1 > .imageBox {
-                    background-image: url("../src/assets/home/desktop/create-and-share.jpg");
-                    background-position: center;
-                    height: 650px;
-                    padding-right: 57.64%;
-                }
-
-                #row-2 > .imageBox {
-                    background-image: url("../src/assets/home/desktop/beautiful-stories.jpg");
-                    background-position: center;
-                    height: 600px;
-                    padding-right: 57.64%;
-                }
-
-                #row-2 > .descriptionBox {
-                    padding-top: 136px;
-                    padding-left: 112px;
-                    padding-right: 111px;
-                    padding-bottom: 135px;
-                    max-width: 387px;
-                    max-height: 329px;                   
-                }
-
-                #row-2 > .descriptionBox > #cta {
-                    color: var(--pure-black);
-                }
-
-                #row-3 > .descriptionBox {
-                    padding-top: 160px;
-                    padding-left: 112px;
-                    padding-right: 111px;
-                    padding-bottom: 159px;
-                    max-width: 387px;
-                    max-height: 281px;                   
-                }
-
-                #row-3 > .descriptionBox > #cta {
-                    color: var(--pure-black);
-                }
-
-                #row-3 > .imageBox {
-                    background-image: url("../src/assets/home/desktop/designed-for-everyone.jpg");
-                    background-position: center;
-                    height: 600px;
-                    padding-right: 57.64%;
+                story-card {
+                    grid-column: span 1;
                 }
             </style>
         `;
