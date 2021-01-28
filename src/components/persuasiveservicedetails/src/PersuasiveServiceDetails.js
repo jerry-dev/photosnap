@@ -7,7 +7,7 @@ export default class PersuasiveServiceDetails extends HTMLElement {
     connectedCallback() {
         this.render();
     }
-
+    
     render() {
         this.html();
         this.css();
@@ -51,14 +51,19 @@ export default class PersuasiveServiceDetails extends HTMLElement {
     }
 
     css() {
+        this.defaultCSS();
+        this.tabletLayoutCSS();
+        this.mobileLayoutCSS();
+    }
+
+    defaultCSS() {
         this.shadowRoot.innerHTML += `
             <style>
                 *, *::before, *::after { padding: 0; margin: 0; }
 
                 :host {
-                    align-items: center;
-                    display: flex;
-                    height: 476px;
+                    background-color: var(--pure-white);
+                    display: block;
                     width: 100%;
                 }
 
@@ -94,13 +99,65 @@ export default class PersuasiveServiceDetails extends HTMLElement {
                 #detailsContainer > .detail > .descriptionContainer > p {
                     font-size: var(--font-size-2);
                     text-align: center;
-                }
-
-                #detailsContainer > #detail-2 > img {
-                    margin-top: 15px;
+                    line-height: var(--line-height-2);
                 }
             </style>
         `;
+    }
+
+    tabletLayoutCSS() {
+        this.shadowRoot.innerHTML += `
+            <style>
+                @media screen and (max-width: 768px) {
+                    #detailsContainer {
+                        align-items: center;
+                        flex-direction: column;
+                        margin-left: auto;
+                        margin-right: auto;
+                        height: 1015px;
+                    }
+
+                    #detailsContainer {
+                        max-height: 775px;
+                        width: 457px;
+                    }
+
+                    .detail {
+                        max-height: 211px;
+                        min-width: 100%;
+                    }
+
+                    #detail-2 {
+                        height: 193px;
+                    }
+
+                    #detail-1 > .detailIcon,
+                    #detail-3 > .detailIcon  {
+                        margin-bottom: 48px;
+                    }
+
+                    #detail-2 > .detailIcon  {
+                        margin-bottom: 66px;
+                    }
+                }
+            </style>`;
+    }
+
+    mobileLayoutCSS() {
+        this.shadowRoot.innerHTML += `
+            <style>
+                @media screen and (max-width: 375px) {
+                    #detailsContainer {
+                        max-height: 802px;
+                        width: 310px;
+                    }
+
+                    .detail {
+                        max-height: 236px;
+                        margin-bottom: 56px;
+                    }
+                }
+            </style>`;
     }
 }
 

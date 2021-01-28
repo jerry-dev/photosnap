@@ -271,6 +271,7 @@ export default class HeroSection extends HTMLElement {
                     }
 
                     .row > .imageBox {
+                        background-repeat: no-repeat;
                         background-size: cover;
                         max-width: 100%;
                         order: 1;
@@ -311,6 +312,10 @@ export default class HeroSection extends HTMLElement {
                     #row-1 > .descriptionBox > .descriptionContainer {
                         height: 275px;
                         width: 318px;
+                    }
+
+                    #row-1 > .descriptionBox > .descriptionContainer:hover::after {
+                        display: none;
                     }
 
                     #row-1 > .descriptionBox > .descriptionContainer::after {

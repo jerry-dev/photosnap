@@ -71,6 +71,12 @@ export default class HomeSection extends HTMLElement {
     }
 
     css() {
+        this.defaultCSS();
+        this.tabletLayoutCSS();
+        this.mobileLayoutCSS();
+    }
+
+    defaultCSS() {
         this.shadowRoot.innerHTML += `
             <style>
                 *, *::before, *::after { margin: 0; padding: 0; }
@@ -78,15 +84,43 @@ export default class HomeSection extends HTMLElement {
                 #storyCardsContainer {
                     display: grid;
                     grid-template-columns: repeat(4, 25%);
-                    grid-template-row: 100%;
-                    height: 500px;
+                    grid-template-rows: 500px;
                 }
 
                 story-card {
                     grid-column: span 1;
                 }
+
+                persuasive-service-details {
+                    padding-bottom: 120px;
+                    padding-top: 120px;
+                }
             </style>
         `;
+    }
+
+    tabletLayoutCSS() {
+        this.shadowRoot.innerHTML += `
+            <style>
+                @media screen and (max-width: 768px) {
+                    #storyCardsContainer {
+                        grid-template-columns: repeat(2, 50%);
+                        grid-template-rows: repeat(2, 500px);
+                    }
+                }
+            </style>`;
+    }
+
+    mobileLayoutCSS() {
+        this.shadowRoot.innerHTML += `
+            <style>
+                @media screen and (max-width: 375px) {
+                    persuasive-service-details {
+                        padding-bottom: 80px;
+                        padding-top: 80px;
+                    }
+                }
+            </style>`;
     }
 }
 
