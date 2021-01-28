@@ -49,6 +49,21 @@ export default class StoryCard extends HTMLElement {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
+                transition-property: transform;
+                transition-duration: .2s;
+            }
+
+            :host(:hover) {
+                transform: translateY(-20px);
+            }
+
+            :host(:hover)::after {
+                content: "";
+                background-image: var(--main-accent);
+                display: block;
+                height: 6px;
+                position: relative;
+                width: 100%;
             }
 
             #details {

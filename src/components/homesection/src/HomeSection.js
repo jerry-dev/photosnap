@@ -1,6 +1,6 @@
 import HeroSection from '../../herosection/src/HeroSection.js';
 import StoryCard from '../../storycard/src/StoryCard.js';
-// import PersuasiveServiceDetails from '../../storycard/src/PersuasiveServiceDetails.js';
+import PersuasiveServiceDetails from '../../persuasiveservicedetails/src/PersuasiveServiceDetails.js';
 
 export default class HomeSection extends HTMLElement {
     constructor() {
@@ -20,10 +20,9 @@ export default class HomeSection extends HTMLElement {
 
     html()  {
         let html = ``;
-        html += `<hero-section></hero-section>
-        <div id="storyCardsContainer">
-            ${this.cardGenerator()}
-        </div>`;
+        html += `<hero-section></hero-section>`;
+        html += `<div id="storyCardsContainer">${this.cardGenerator()}</div>`;
+        html += `<persuasive-service-details></persuasive-service-details>`;
         this.shadowRoot.innerHTML += html;
     }
 
