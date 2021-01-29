@@ -69,6 +69,12 @@ export default class SiteFooter extends HTMLElement {
     }
 
     css() {
+        this.defaultCSS();
+        this.tabletLayoutCSS();
+        this.mobileLayoutCSS();
+    }
+
+    defaultCSS() {
         this.shadowRoot.innerHTML += `
             <style>
                 *, *::before, *::after { padding: 0; margin: 0; }
@@ -78,25 +84,26 @@ export default class SiteFooter extends HTMLElement {
                     display: block;
                     padding-top: 66px;
                     padding-bottom: 62px;
-                    padding-left: 169px;
-                    padding-right: 167px;
+                    padding-left: 11.74%;
+                    padding-right: 11.60%;
                 }
 
                 :host > #siteFooterContainer {
                     display: grid;
-                    grid-template-columns: minmax(55.8px, 279px) 1fr minmax(51px, 255px);
+                    grid-template-columns: 279px 1fr minmax(51px, 255px);
                     grid-template-rows: repeat(2, 61px);
-                    max-height: 122px;
                 }
 
                 :host > #siteFooterContainer > #logo {
                     height: 16px;
-                    width: 170px;
+                    margin-right: 109px;
                 }
 
                 :host > #siteFooterContainer > #pageLinks {
                     display: flex;
                     flex-direction: column;
+                    grid-column: 2;
+                    grid-row: span 2;
                     list-style: none;
                 }
 
@@ -105,11 +112,8 @@ export default class SiteFooter extends HTMLElement {
                     cursor: pointer;
                     font-size: var(--font-size-1);
                     font-weight: bold;
-                    grid-column: 2;
-                    grid-row: 1 / span 2;
                     letter-spacing: var(--letter-spacing-1);
                     light-height: var(--line-height-1);
-                    width: 255px;
                 }
 
                 :host > #siteFooterContainer > #pageLinks > li:hover {
@@ -125,6 +129,7 @@ export default class SiteFooter extends HTMLElement {
                     color: var(--pure-white);
                     cursor: pointer;
                     display: flex;
+                    grid-column: 3;
                     margin-left: auto;
                     max-width: 168px;
                     max-height: 16px;
@@ -186,6 +191,110 @@ export default class SiteFooter extends HTMLElement {
                 }
             </style>
         `;
+    }
+
+    tabletLayoutCSS() {
+        this.shadowRoot.innerHTML += `
+            <style>
+                @media screen and (max-width: 768px) {
+                    :host {
+                        padding-top: 64px;
+                        padding-bottom: 64px;
+                        padding-left: 39px;
+                        padding-right: 40px;
+                    }
+
+                    :host > #siteFooterContainer {
+                        grid-template-columns: 279px 1fr;
+                        grid-template-rows: repeat(3, 1fr);
+                    }
+
+                    :host > #siteFooterContainer > #logo {
+                        margin-bottom: 32px;
+                    }
+
+                    :host > #siteFooterContainer > #cta {
+                        grid-column: 2;
+                    }
+
+                    :host > #siteFooterContainer > #pageLinks {
+                        flex-direction: row;
+                        grid-column: span 2;
+                        grid-row: 2;
+                        margin-bottom: 72px;
+                    }
+
+                    :host > #siteFooterContainer > #pageLinks > li:not(:last-child) {
+                        margin-right: 26px;
+                    }
+
+                    small {
+                        grid-column: 2;
+                        grid-row: 3;
+                    }
+
+                    :host > #siteFooterContainer > #socialLinks {
+                        grid-column: 1;
+                        grid-row: 3;
+                    }
+                }
+            </style>`;
+    }
+
+    mobileLayoutCSS() {
+        this.shadowRoot.innerHTML += `
+            <style>
+                @media screen and (max-width: 375px) {
+                    :host {
+                        padding-top: 56px;
+                        padding-bottom: 56px;
+                        padding-left: 33px;
+                        padding-right: 32px;
+                    }
+                    
+                    :host > #siteFooterContainer {
+                        align-items: center;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    :host > #siteFooterContainer > #logo {
+                        margin-bottom: 32px;
+                        order: 0;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+
+                    :host > #siteFooterContainer > #socialLinks {
+                        margin-bottom: 50.87px;
+                        order: 1;
+                    }
+
+                    :host > #siteFooterContainer > #pageLinks {
+                        align-items: center;
+                        flex-direction: column;
+                        margin-bottom: 119px;
+                        order: 3;
+                    }
+
+                    :host > #siteFooterContainer > #pageLinks > li:not(:last-child) {
+                        margin-right: 0;
+                    }
+
+                    :host > #siteFooterContainer > #cta {
+                        order: 4;
+                        margin-bottom: 34px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+
+                    small {
+                        order: 5;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+            </style>`;
     }
 }
 

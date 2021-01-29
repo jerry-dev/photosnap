@@ -79,6 +79,7 @@ export default class SiteHeader extends HTMLElement {
                     display: flex;
                     left: 0;
                     right: 0;
+                    top: -1px;
                     padding-bottom: 32px;
                     padding-left: 33px;
                     padding-right: 32px;
@@ -184,7 +185,7 @@ export default class SiteHeader extends HTMLElement {
 
                     :host > #dropDownOverlay > #dropDownGroup > ul {
                         align-items: center;
-                        border-bottom: 1px solid var(--opaque-pure-black);
+                        border-bottom: 1px solid var(--opaque-pure-black-1);
                         display: flex;
                         flex-direction: column;
                         margin-bottom: 20px;
