@@ -119,6 +119,11 @@ export default class HomeSection extends HTMLElement {
                         padding-bottom: 80px;
                         padding-top: 80px;
                     }
+
+                    #storyCardsContainer {
+                        grid-template-columns: repeat(1, 100%);
+                        grid-template-rows: repeat(4, 500px);
+                    }
                 }
             </style>`;
     }

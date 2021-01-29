@@ -18,6 +18,7 @@ export default class SiteHeader extends HTMLElement {
         this.defaultCSS();
         this.tabletLayoutCSS();
         this.mobileLayoutCSS();
+        this.menuAnimationCSS();
     }
 
     html() {
@@ -35,13 +36,15 @@ export default class SiteHeader extends HTMLElement {
                     <img id="menuCloseIcon" src="../src/assets/shared/mobile/close.svg" alt="close icon">
                 </ul>
             </div>
-            <div id="dropDownGroup">
-                <ul>
-                    <li>STORIES</li>
-                    <li>FEATURES</li>
-                    <li>PRICING</li>
-                </ul>
-                <button>GET AN INVITE</button>
+            <div id="dropDownOverlay">
+                <div id="dropDownGroup">
+                    <ul>
+                        <li>STORIES</li>
+                        <li>FEATURES</li>
+                        <li>PRICING</li>
+                    </ul>
+                    <button>GET AN INVITE</button>
+                </div>
             </div>
         `;
     }
@@ -59,12 +62,23 @@ export default class SiteHeader extends HTMLElement {
                     padding-right: 165px;
                 }
 
-                :host > #dropDownGroup {
-                    background-color: var(--pure-white);
+                :host > #dropDownOverlay {
                     display: none;
+                    position: absolute;
+                    height: 100vh;
+                    width: 100vw;
+                    background-color: var(--opaque-pure-black-2);
+                    margin-top: 28px;
                     left: 0;
                     right: 0;
-                    margin-top: 28px;
+                    z-index: 100;
+                }
+
+                :host > #dropDownOverlay > #dropDownGroup {
+                    background-color: var(--pure-white);
+                    display: flex;
+                    left: 0;
+                    right: 0;
                     padding-bottom: 32px;
                     padding-left: 33px;
                     padding-right: 32px;
@@ -85,14 +99,14 @@ export default class SiteHeader extends HTMLElement {
                 }
 
                 :host > #siteHeaderContainer > ul, 
-                :host > #dropDownGroup > ul {
+                :host > #dropDownOverlay > #dropDownGroup > ul {
                     display: flex;
                     flex-direction: row;
                     list-style: none;
                 }
 
                 :host > #siteHeaderContainer > ul > li,
-                :host > #dropDownGroup > ul > li {
+                :host > #dropDownOverlay > #dropDownGroup > ul > li {
                     cursor: pointer;
                     font-size: var(--font-size-1);
                     font-weight: bold;
@@ -105,12 +119,12 @@ export default class SiteHeader extends HTMLElement {
                 }
 
                 :host > #siteHeaderContainer > ul > li:hover,
-                :host > #dropDownGroup > ul > li:hover {
+                :host > #dropDownOverlay > #dropDownGroup > ul > li:hover {
                     opacity: 0.3;
                 }
 
                 :host > #siteHeaderContainer > button,
-                :host > #dropDownGroup > button {
+                :host > #dropDownOverlay > #dropDownGroup > button {
                     color: var(--pure-white);
                     cursor: pointer;
                     background: none;
@@ -124,7 +138,7 @@ export default class SiteHeader extends HTMLElement {
                 }
 
                 :host > #siteHeaderContainer > button:hover,
-                :host > #dropDownGroup > button:hover {
+                :host > #dropDownOverlay > #dropDownGroup > button:hover {
                     color: rgba(0, 0, 0, 1);
                     background-color: var(--light-grey);
                 }
@@ -163,12 +177,12 @@ export default class SiteHeader extends HTMLElement {
                         display: none;
                     }
 
-                    :host > #dropDownGroup {
+                    :host > #dropDownOverlay > #dropDownGroup {
                         align-items: center;
                         flex-direction: column;
                     }
 
-                    :host > #dropDownGroup > ul {
+                    :host > #dropDownOverlay > #dropDownGroup > ul {
                         align-items: center;
                         border-bottom: 1px solid var(--opaque-pure-black);
                         display: flex;
@@ -177,12 +191,12 @@ export default class SiteHeader extends HTMLElement {
                         width: 100%;
                     }
 
-                    :host > #dropDownGroup > ul > li {
+                    :host > #dropDownOverlay > #dropDownGroup > ul > li {
                         font-size: var(--font-size-2);
                         margin-bottom: 20px;
                     }
 
-                    :host > #dropDownGroup > button {
+                    :host > #dropDownOverlay > #dropDownGroup > button {
                         font-size: var(--font-size-2);
                         height: 48px;
                         width: 100%;
@@ -195,34 +209,62 @@ export default class SiteHeader extends HTMLElement {
                     :host > #siteHeaderContainer > #menuIconContainer > #menuCloseIcon {
                         display: none;
                     }
-
-                    :host > #dropDownGroup {
-                        animation-fill-mode: forwards;
-                        animation-duration: 0.2s;
-                        animation-iteration-count: 1;
-                    }
-
-                    @keyframes openMenu {
-                        0% {
-                            transform: translate3d(0, -100px, 0)
-                        }
-                        
-                        100% {
-                            transform: translate3d(0, 0, 0)
-                        }
-                    }
-
-                    @keyframes closeMenu {
-                        0% {
-                            transform: translate3d(0, 0, 0)
-                        }
-                        
-                        100% {
-                            transform: translate3d(0, -300px, 0)
-                        }
-                    }
                 }
             </style>`;
+    }
+
+    menuAnimationCSS() {
+        this.shadowRoot.innerHTML += `
+            <style>
+                :host > #dropDownOverlay {
+                    animation-fill-mode: forwards;
+                    animation-duration: 0.1s;
+                    animation-iteration-count: 1;
+                }
+
+                @keyframes openOverlay {
+                    0% {
+                        transform: scaleX(0);
+                        transform: scaleY(0);
+                    }
+                    
+                    100% {
+                        transform: scaleX(1);
+                        transform: scaleY(1);
+                    }
+                }
+
+                @keyframes closeOverlay {
+                    0% {
+                        transform: scaleX(1);
+                        transform: scaleY(1);
+                    }
+                    
+                    100% {
+                        transform: scaleX(0);
+                        transform: scaleY(0);
+                    }
+                }
+
+                :host > #dropDownOverlay > #dropDownGroup {
+                    animation-fill-mode: forwards;
+                    animation-duration: 0.5s;
+                    animation-iteration-count: 1;
+                }
+
+                @keyframes openMenu {
+                    0%, 50% {
+                        opacity: 0;
+                        transform: translate3d(0, -400px, 0);
+                    }
+                    
+                    100% {
+                        opacity: 1;
+                        transform: translate3d(0, 0, 0);
+                    }
+                }
+            </stlye>`
+        ;
     }
 
     scripts() {
@@ -249,36 +291,33 @@ export default class SiteHeader extends HTMLElement {
 
             window.addEventListener('resize', () => {
                 if (this.isMobileMenuOpen() && window.innerWidth > 700) {
-                    this.closeMobileMenuQuickly();
+                    this.closeMobileMenu();
                 }
             });
         });
     }
 
     openMobileMenu() {
-        this.shadowRoot.querySelector('#dropDownGroup').style.animationName = 'openMenu';
-        this.shadowRoot.querySelector('#dropDownGroup').style.display = 'flex';
+        this.shadowRoot.querySelector('#dropDownOverlay').style.animationName = 'openOverlay';
+        this.shadowRoot.querySelector('#dropDownOverlay > #dropDownGroup').style.animationName = 'openMenu';
+        this.shadowRoot.querySelector('#dropDownOverlay').style.display = 'block';
         this.shadowRoot.querySelector('#menuIconContainer > #menuOpenIcon').style.display = 'none';
         this.shadowRoot.querySelector('#menuIconContainer > #menuCloseIcon').style.display = 'block';
     }
 
     closeMobileMenu() {
-        this.shadowRoot.querySelector('#dropDownGroup').style.animationName = 'closeMenu';
+        this.shadowRoot.querySelector('#dropDownOverlay').style.animationName = 'closeOverlay';
+        this.shadowRoot.querySelector('#dropDownOverlay > #dropDownGroup').style.animationName = '';
         setTimeout(() => {
-            this.shadowRoot.querySelector('#dropDownGroup').style.display = 'none';
+            this.shadowRoot.querySelector('#dropDownOverlay').style.display = 'none';
             this.shadowRoot.querySelector('#menuIconContainer > #menuOpenIcon').style.display = 'block';
             this.shadowRoot.querySelector('#menuIconContainer > #menuCloseIcon').style.display = 'none';
         }, 200);
     }
 
-    closeMobileMenuQuickly() {
-        this.shadowRoot.querySelector('#dropDownGroup').style.display = 'none';
-        this.shadowRoot.querySelector('#menuIconContainer > #menuOpenIcon').style.display = 'block';
-        this.shadowRoot.querySelector('#menuIconContainer > #menuCloseIcon').style.display = 'none';
-    }
 
     isMobileMenuOpen() {
-        const result = this.shadowRoot.querySelector('#dropDownGroup').style.display;
+        const result = this.shadowRoot.querySelector('#dropDownOverlay').style.display;
         return (result !== "none") ? true : false;
     }
 
