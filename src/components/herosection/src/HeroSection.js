@@ -206,6 +206,10 @@ export default class HeroSection extends HTMLElement {
                     font-weight: bold;
                 }
 
+                #row-3 > .descriptionBox > .descriptionContainer > #cta > p:hover {
+                    border-bottom: 1px solid var(--pure-black);
+                }
+
                 #row-3 > .descriptionBox > #cta > p:hover {
                     border-bottom: 1px solid var(--pure-black);
                 }
