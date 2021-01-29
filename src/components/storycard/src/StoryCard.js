@@ -45,6 +45,7 @@ export default class StoryCard extends HTMLElement {
                 align-items: center;
                 background-image: url('${this.getAttribute('desktopImage')}');
                 background-position: center;
+                background-size: cover;
                 color: var(--pure-white);
                 display: flex;
                 flex-direction: column;
