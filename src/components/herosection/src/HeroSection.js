@@ -221,7 +221,7 @@ export default class HeroSection extends HTMLElement {
                     width: 830px;
                 }
 
-                #row-1 > .descriptionBox > .descriptionContainer:hover::after {
+                #row-1 > .descriptionBox > .descriptionContainer::after {
                     content: "";
                     background-image: var(--main-accent);
                     display: block;
@@ -230,6 +230,12 @@ export default class HeroSection extends HTMLElement {
                     bottom: 304px;
                     position: relative;
                     width: 6px;
+                    transform: scaleY(0);
+                    transition-duration: 0.5s;
+                }
+
+                #row-1 > .descriptionBox > .descriptionContainer:hover::after {
+                    transform: scaleY(1);
                 }
             </style>
         `;
