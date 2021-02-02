@@ -1,6 +1,6 @@
 export default class StoryCard extends HTMLElement {
     static get observedAttributes() {
-        return ['title, author, desktopImage, tabletImage, mobileImage'];
+        return ['publishDate, title, author, desktopImage, tabletImage, mobileImage'];
     }
 
     constructor() {
@@ -26,8 +26,9 @@ export default class StoryCard extends HTMLElement {
     html() {
         this.shadowRoot.innerHTML +=
         `<div id="details">
+            <time>${this.getAttribute('publishDate')}</time>
             <h3>${this.getAttribute('title')}</h3>
-            <p>by ${this.getAttribute('author')}</p>
+            <address rel="author">by ${this.getAttribute('author')}</address>
             <a id="cta" href="#000">
                 <p>READ STORY</p>
                 <img class="arrowIcon" src="../src/assets/shared/desktop/white/arrow.svg">
@@ -72,13 +73,22 @@ export default class StoryCard extends HTMLElement {
                 margin-bottom: 40px;
             }
 
+            #details > time {
+                font-size: var(--font-size-6);
+                margin-bottom: 4px;
+            }
+
+            #details > address {
+                font-style: normal;
+            }
+
             #details > h3 {
                 font-weight: bold;
                 font-size: var(--font-size-3);
                 margin-bottom: 4px;
             }
 
-            #details > p {
+            #details > address {
                 font-size: var(--font-size-6);
                 margin-bottom: 16px;
             }

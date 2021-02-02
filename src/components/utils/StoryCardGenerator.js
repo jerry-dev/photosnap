@@ -9,6 +9,7 @@ const storyCardGenerator = (section, metaData) => {
         }
         
         html += `<story-card
+            publishDate="${metaData[i].publishDate}"
             title="${metaData[i].title}"
             author="${metaData[i].author}"
             desktopImage="${metaData[i].desktopImage}"
