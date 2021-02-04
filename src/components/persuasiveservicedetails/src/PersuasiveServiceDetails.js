@@ -16,7 +16,7 @@ export default class PersuasiveServiceDetails extends HTMLElement {
     html() {
         this.shadowRoot.innerHTML += `
             <div id="detailsContainer">
-                <span id="detail-1" class="detail">
+                <article id="detail-1" class="detail group-1">
                     <img class="detailIcon" src="../src/assets/features/desktop/responsive.svg">
                     <div class="descriptionContainer">
                         <h3>100% Responsive</h3>
@@ -25,8 +25,8 @@ export default class PersuasiveServiceDetails extends HTMLElement {
                             responsive and stories look beautiful on any screen.
                         </p>
                     </div>
-                </span>
-                <span id="detail-2" class="detail">
+                </article>
+                <article id="detail-2" class="detail group-1">
                     <img class="detailIcon" src="../src/assets/features/desktop/no-limit.svg">
                     <div class="descriptionContainer">
                         <h3>No Photo Upload Limit</h3>
@@ -35,8 +35,8 @@ export default class PersuasiveServiceDetails extends HTMLElement {
                             upload in bulk and share all of your stories in one go.
                         </p>
                     </div>
-                </span>
-                <span id="detail-3" class="detail">
+                </article>
+                <article id="detail-3" class="detail group-1">
                     <img class="detailIcon" src="../src/assets/features/desktop/embed.svg">
                     <div class="descriptionContainer">
                         <h3>Available to Embed</h3>
@@ -45,7 +45,37 @@ export default class PersuasiveServiceDetails extends HTMLElement {
                             or YouTube videos, Google Maps, and more.
                         </p>
                     </div>
-                </span>
+                </article>
+                <article id="detail-4" class="detail group-2">
+                    <img class="detailIcon" src="../src/assets/features/desktop/custom-domain.svg">
+                    <div class="descriptionContainer">
+                        <h3>100% Responsive</h3>
+                        <p>
+                            With Photosnap subscriptions you can host your stories on your own domain.
+                            You can also remove our branding!
+                        </p>
+                    </div>
+                </article>
+                <article id="detail-5" class="detail group-2">
+                    <img class="detailIcon" src="../src/assets/features/desktop/boost-exposure.svg">
+                    <div class="descriptionContainer">
+                        <h3>No Photo Upload Limit</h3>
+                        <p>
+                            Users that viewed your story or gallery can easily get notifed of new and
+                            featured stories with our built in mailing list.
+                        </p>
+                    </div>
+                </article>
+                <article id="detail-6" class="detail group-2">
+                    <img class="detailIcon" src="../src/assets/features/desktop/drag-drop.svg">
+                    <div class="descriptionContainer">
+                        <h3>Available to Embed</h3>
+                        <p>
+                            Easily drag and drop your image and get beautiful shots everytime. No over
+                            the top tooling to add friction to creating stories.
+                        </p>
+                    </div>
+                </article>
             </div>
         `;
     }
@@ -64,29 +94,36 @@ export default class PersuasiveServiceDetails extends HTMLElement {
                 :host {
                     background-color: var(--pure-white);
                     display: block;
-                    width: 100%;
+                    max-width: 100%;
+                    padding-top: 160px;
+                    padding-bottom: 160px;
+                    padding-left: 12.5%;
+                    padding-right: 12.5%;
                 }
 
                 #detailsContainer {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 77.08%;
+                    display: grid;
+                    grid-template-columns: repeat(3, 31.53%);
+                    grid-auto-rows: auto;
+                    grid-column-gap: 2.70%;
+                    grid-row-gap: 104px;
+                    width: 100%;
                 }
-
+                
                 #detailsContainer > .detail {
                     align-items: center;
                     display: flex;
                     flex-direction: column;
-                    height: 236px;
-                    justify-content: space-between;
-                    max-width: 350px;
+                    grid-column: span 1;
                 }
 
-                #detailsContainer > .detail > .descriptionContainer {
-                    height: 116px;
+                #detailsContainer > .detail > img {
+                    margin-bottom: 48px;
+                }
+
+                #detailsContainer > #detail-2 > img {
+                    margin-top: 15px;
+                    margin-bottom: 66px;
                 }
 
                 #detailsContainer > .detail > .descriptionContainer > h3 {
@@ -109,35 +146,19 @@ export default class PersuasiveServiceDetails extends HTMLElement {
         this.shadowRoot.innerHTML += `
             <style>
                 @media screen and (max-width: 768px) {
-                    #detailsContainer {
-                        align-items: center;
-                        flex-direction: column;
-                        margin-left: auto;
-                        margin-right: auto;
-                        height: 1015px;
+
+                    :host {
+                        padding-bottom: 112px;
+                        padding-top: 112px;
+                        padding-left: 5.20%;
+                        padding-right: 5.20%;
                     }
 
                     #detailsContainer {
-                        max-height: 775px;
-                        width: 457px;
-                    }
-
-                    .detail {
-                        max-height: 211px;
-                        min-width: 100%;
-                    }
-
-                    #detail-2 {
-                        height: 193px;
-                    }
-
-                    #detail-1 > .detailIcon,
-                    #detail-3 > .detailIcon  {
-                        margin-bottom: 48px;
-                    }
-
-                    #detail-2 > .detailIcon  {
-                        margin-bottom: 66px;
+                        grid-template-columns: repeat(2, 49.13%);
+                        grid-auto-rows: auto;
+                        grid-column-gap: 0.99%;
+                        grid-row-gap: 83px;
                     }
                 }
             </style>`;
@@ -147,14 +168,17 @@ export default class PersuasiveServiceDetails extends HTMLElement {
         this.shadowRoot.innerHTML += `
             <style>
                 @media screen and (max-width: 375px) {
-                    #detailsContainer {
-                        max-height: 802px;
-                        width: 310px;
+                    :host {
+                        padding-bottom: 91px;
+                        padding-top: 64px;
+                        padding-left: 8.8%;
+                        padding-right: 8.8%;
                     }
 
-                    .detail {
-                        max-height: 236px;
-                        margin-bottom: 56px;
+                    #detailsContainer {
+                        grid-template-columns: repeat(1, 100%);
+                        grid-auto-rows: auto;
+                        grid-row-gap: 56px;
                     }
                 }
             </style>`;

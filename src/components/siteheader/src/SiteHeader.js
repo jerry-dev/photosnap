@@ -56,6 +56,7 @@ export default class SiteHeader extends HTMLElement {
 
                 :host {
                     display: block;
+                    max-width: 100%;
                     padding-top: 28px;
                     padding-bottom: 28px;
                     padding-left: 165px;
@@ -92,11 +93,6 @@ export default class SiteHeader extends HTMLElement {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                }
-
-                :host > #siteHeaderContainer > #logo {
-                    height: 16px;
-                    width: 170px;
                 }
 
                 :host > #siteHeaderContainer > ul, 
@@ -168,6 +164,17 @@ export default class SiteHeader extends HTMLElement {
         this.shadowRoot.innerHTML += `
             <style>
                 @media screen and (max-width: 700px) {
+                    :host {
+                        padding-left: 24px;
+                        padding-right: 24px;
+                    }
+
+                    :host > #siteHeaderContainer {
+                        align-items: center;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
                     :host > #siteHeaderContainer > ul,
                     :host > #siteHeaderContainer > button {
                         display: none;

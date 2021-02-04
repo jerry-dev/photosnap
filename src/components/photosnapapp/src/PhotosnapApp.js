@@ -1,6 +1,7 @@
 import SiteHeader from '../../siteheader/src/SiteHeader.js';
 import HomeSection from '../../homesection/src/HomeSection.js';
 import StoriesSection from '../../storiessection/src/StoriesSection.js';
+import FeaturesSection from '../../featuressection/src/FeaturesSection.js';
 import SiteFooter from '../../sitefooter/src/SiteFooter.js';
 
 class PhotosnapApp extends HTMLElement {
@@ -27,11 +28,21 @@ class PhotosnapApp extends HTMLElement {
     //     `;
     // }
 
+    // html() {
+    //     this.shadowRoot.innerHTML += `
+    //         <div id="appContainer">
+    //             <site-header></site-header>
+    //             <stories-section></stories-section>
+    //             <site-footer></site-footer>
+    //         <div>
+    //     `;
+    // }
+
     html() {
         this.shadowRoot.innerHTML += `
             <div id="appContainer">
                 <site-header></site-header>
-                <stories-section></stories-section>
+                <features-section></features-section>
                 <site-footer></site-footer>
             <div>
         `;
