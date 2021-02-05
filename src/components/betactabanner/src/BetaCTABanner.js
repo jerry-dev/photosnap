@@ -133,7 +133,7 @@ export default class BetaCTABanner extends HTMLElement {
     mobileLayoutCSS() {
         this.shadowRoot.innerHTML += `
             <style>
-                @media screen and (max-width: 768px) {
+                @media screen and (max-width: 375px) {
                     :host {
                         background-image: url("../src/assets/shared/mobile/bg-beta.jpg");
                         padding-bottom: 64px;

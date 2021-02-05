@@ -1,4 +1,7 @@
 export default class PersuasiveServiceDetails extends HTMLElement {
+    static get observedAttributes() {
+        return [ 'displayOff' ]
+    }
     constructor() {
         super();
         this.attachShadow({mode: 'open'});
@@ -137,6 +140,10 @@ export default class PersuasiveServiceDetails extends HTMLElement {
                     font-size: var(--font-size-2);
                     text-align: center;
                     line-height: var(--line-height-2);
+                }
+
+                #detailsContainer > ${this.getAttribute('displayOff')} {
+                    display: none;
                 }
             </style>
         `;

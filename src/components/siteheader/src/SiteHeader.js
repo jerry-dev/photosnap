@@ -26,9 +26,9 @@ export default class SiteHeader extends HTMLElement {
             <div id="siteHeaderContainer">
                 <img id="logo" src="../src/assets/shared/desktop/logo.svg" alt="company logo">
                 <ul>
-                    <li>STORIES</li>
-                    <li>FEATURES</li>
-                    <li>PRICING</li>
+                    <li><a href="/stories">STORIES</a></li>
+                    <li><a href="/features">FEATURES</a></li>
+                    <li><a href="/pricing">PRICING</a></li>
                 </ul>
                 <button>GET AN INVITE</button>
                 <ul id="menuIconContainer">
@@ -39,9 +39,9 @@ export default class SiteHeader extends HTMLElement {
             <div id="dropDownOverlay">
                 <div id="dropDownGroup">
                     <ul>
-                        <li>STORIES</li>
-                        <li>FEATURES</li>
-                        <li>PRICING</li>
+                        <li><a href="/stories">STORIES</a></li>
+                        <li><a href="/features">FEATURES</a></li>
+                        <li><a href="/pricing">PRICING</a></li>
                     </ul>
                     <button>GET AN INVITE</button>
                 </div>
@@ -53,6 +53,11 @@ export default class SiteHeader extends HTMLElement {
         this.shadowRoot.innerHTML += `
             <style>
                 *, *::before, *::after { padding: 0; margin: 0; }
+
+                a {
+                    color: var(--pure-black);
+                    text-decoration: none;
+                }
 
                 :host {
                     display: block;

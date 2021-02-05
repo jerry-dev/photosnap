@@ -28,10 +28,10 @@ export default class SiteFooter extends HTMLElement {
                     </defs>
                 </svg>
                 <ul id="pageLinks">
-                    <li>HOME</li>
-                    <li>STORIES</li>
-                    <li>FEATURES</li>
-                    <li>PRICING</li>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/stories">STORIES</a></li>
+                    <li><a href="/features">FEATURES</a></li>
+                    <li><a href="/pricing">PRICING</a></li>
                 </ul>
                 <a id="cta" href="#000">
                     <p>GET AN INVITE</p>
@@ -78,6 +78,11 @@ export default class SiteFooter extends HTMLElement {
         this.shadowRoot.innerHTML += `
             <style>
                 *, *::before, *::after { padding: 0; margin: 0; }
+
+                a {
+                    color: var(--pure-white);
+                    text-decoration: none;
+                }
 
                 :host {
                     background-color: var(--pure-black);

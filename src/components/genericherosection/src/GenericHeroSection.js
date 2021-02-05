@@ -99,7 +99,7 @@ export default class GenericHeroSection extends HTMLElement {
 
                 @keyframes load {
                     0% {
-                        transform: scaleY(0);
+                        transform: scaleY(3);
                     }
                     100% {
                         transform: scaleY(1);

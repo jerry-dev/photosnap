@@ -23,7 +23,7 @@ export default class HomeSection extends HTMLElement {
         let html = ``;
         html += `<hero-section></hero-section>`;
         html += `<div id="storyCardsContainer">${storyCardGenerator("home", cardMetaData)}</div>`;
-        html += `<persuasive-service-details></persuasive-service-details>`;
+        html += `<persuasive-service-details displayOff=".group-2"></persuasive-service-details>`;
         this.shadowRoot.innerHTML += html;
     }
 

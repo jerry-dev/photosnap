@@ -81,7 +81,6 @@ export default class HeroSection extends HTMLElement {
         this.shadowRoot.innerHTML += `
             <style>
                 *, *::before, *::after { margin: 0, padding: 0; }
-
                 .row {
                     display: flex;
                     flex-direction: row;
