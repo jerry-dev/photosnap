@@ -205,12 +205,12 @@ export default class SiteFooter extends HTMLElement {
                     :host {
                         padding-top: 64px;
                         padding-bottom: 64px;
-                        padding-left: 39px;
-                        padding-right: 40px;
+                        padding-left: 5.078%;
+                        padding-right: 5.208%;
                     }
 
                     :host > #siteFooterContainer {
-                        grid-template-columns: 279px 1fr;
+                        grid-template-columns: minmax(139.5px, 279px) 1fr;
                         grid-template-rows: repeat(3, 1fr);
                     }
 
@@ -253,8 +253,8 @@ export default class SiteFooter extends HTMLElement {
                     :host {
                         padding-top: 56px;
                         padding-bottom: 56px;
-                        padding-left: 33px;
-                        padding-right: 32px;
+                        padding-right: 9.2%;
+                        padding-left: 9.2%;
                     }
                     
                     :host > #siteFooterContainer {

@@ -1,4 +1,5 @@
 import ComparePricingPlanTable from '../../comparepricingplantable/src/ComparePricingPlanTable.js';
+import PricingCards from '../../pricingcards/src/PricingCards.js';
 
 export default class PricingDetails extends HTMLElement {
     constructor() {
@@ -19,6 +20,7 @@ export default class PricingDetails extends HTMLElement {
                 title="PRICING"
                 paragraph="Create a your stories, Photosnap is a platform for photographers and visual storytellers. It’s the simple way to create and share your photos."
             ></generic-hero-section>
+            <pricing-cards></pricing-cards>
             <compare-pricing-plan-table></compare-pricing-plan-table>
             <beta-cta-banner></beta-cta-banner>
         `;

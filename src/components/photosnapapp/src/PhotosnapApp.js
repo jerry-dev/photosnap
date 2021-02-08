@@ -17,16 +17,6 @@ class PhotosnapApp extends HTMLElement {
         // this.routerInitialize();
     }
 
-    render() {
-        this.shadowRoot.innerHTML += `
-            <div id="appContainer">
-                <site-header></site-header>
-                <pricing-details></pricing-details>
-                <site-footer></site-footer>
-            </div>
-        `;
-    }
-
     // render() {
     //     this.shadowRoot.innerHTML += `
     //         <div id="appContainer">
@@ -36,6 +26,16 @@ class PhotosnapApp extends HTMLElement {
     //         </div>
     //     `;
     // }
+
+    render() {
+        this.shadowRoot.innerHTML += `
+            <div id="appContainer">
+                <site-header></site-header>
+                <pricing-details></pricing-details>
+                <site-footer></site-footer>
+            </div>
+        `;
+    }
 
     routerInitialize() {
         const outlet = this.shadowRoot.querySelector('#outlet');

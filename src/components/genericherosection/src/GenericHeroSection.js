@@ -64,13 +64,12 @@ export default class GenericHeroSection extends HTMLElement {
                     padding-right: 111px;
                     padding-top: 173px;
                     padding-bottom: 173px;
-                    max-width: 610px;
                     max-height: 100%;
                 }
 
                 #hero > .descriptionBox > .descriptionContainer {
                     margin-top: -33px;
-                    width: 387px;
+                    max-width: 387px;
                 }
 
                 #hero > .descriptionBox > .descriptionContainer > h2 {
@@ -109,6 +108,8 @@ export default class GenericHeroSection extends HTMLElement {
                 #hero > .imageBox {
                     background-image: url("${this.getAttribute('desktopImage')}");
                     background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
                     height: 100%;
                     width: 830px;     
                 }
