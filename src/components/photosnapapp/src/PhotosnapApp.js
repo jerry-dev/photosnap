@@ -14,24 +14,14 @@ class PhotosnapApp extends HTMLElement {
 
     connectedCallback() {
         this.render();
-        // this.routerInitialize();
+        this.routerInitialize();
     }
-
-    // render() {
-    //     this.shadowRoot.innerHTML += `
-    //         <div id="appContainer">
-    //             <site-header></site-header>
-    //             <div id="outlet"></div>
-    //             <site-footer></site-footer>
-    //         </div>
-    //     `;
-    // }
 
     render() {
         this.shadowRoot.innerHTML += `
             <div id="appContainer">
                 <site-header></site-header>
-                <pricing-details></pricing-details>
+                <div id="outlet"></div>
                 <site-footer></site-footer>
             </div>
         `;

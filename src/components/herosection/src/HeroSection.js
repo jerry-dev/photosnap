@@ -81,6 +81,7 @@ export default class HeroSection extends HTMLElement {
         this.shadowRoot.innerHTML += `
             <style>
                 *, *::before, *::after { margin: 0, padding: 0; }
+
                 .row {
                     display: flex;
                     flex-direction: row;
@@ -96,6 +97,7 @@ export default class HeroSection extends HTMLElement {
                     letter-spacing: var(--letter-spacing-2);
                     line-height: var(--line-height-3);
                     margin-bottom: 21px;
+                    max-width: 387px;
                 }
 
                 .row > .descriptionBox > .descriptionContainer >  p {
@@ -103,6 +105,7 @@ export default class HeroSection extends HTMLElement {
                     line-height: var(--line-height-2);
                     opacity: 0.6;
                     margin-bottom: 48px;
+                    max-width: 387px;
                 }
 
                 #cta {
@@ -125,10 +128,10 @@ export default class HeroSection extends HTMLElement {
                 #row-1 > .descriptionBox {
                     background-color: var(--pure-black);
                     color: var(--light-grey);
-                    padding-left: 112px;
-                    padding-right: 111px;
-                    padding-top: 173px;
-                    padding-bottom: 173px;
+                    padding-left: 7.778%;
+                    padding-right: 7.708%;
+                    padding-top: 13%;
+                    padding-bottom: 13%;
                     max-width: 610px;
                     max-height: 100%;
                 }
@@ -147,7 +150,8 @@ export default class HeroSection extends HTMLElement {
                 #row-1 > .descriptionBox > .descriptionContainer,
                 #row-2 > .descriptionBox > .descriptionContainer,
                 #row-3 > .descriptionBox > .descriptionContainer {
-                    width: 387px;
+                    max-width: 100%;
+                    max-height: 100%;
                 }
 
                 #row-1 > .descriptionBox > .descriptionContainer > #cta {
@@ -176,10 +180,10 @@ export default class HeroSection extends HTMLElement {
                 #row-2 > .descriptionBox {
                     max-height: 100%;
                     max-width: 610px;
-                    padding-left: 112px;
-                    padding-right: 111px;
-                    padding-top: 173px;
-                    padding-bottom: 173px;
+                    padding-left: 7.778%;
+                    padding-right: 7.708%;
+                    padding-top: 13%;
+                    padding-bottom: 13%;
                 }
 
                 #row-2 > .descriptionBox > .descriptionContainer > #cta {
@@ -194,9 +198,10 @@ export default class HeroSection extends HTMLElement {
                 #row-3 > .descriptionBox {
                     max-height: 100%;
                     padding-top: 160px;
-                    padding-left: 112px;
-                    padding-right: 111px;
-                    padding-bottom: 159px; 
+                    padding-top: 11.111%;
+                    padding-left: 7.778%;
+                    padding-right: 7.708%;
+                    padding-bottom: 11.042%; 
                     max-width: 610px;                  
                 }
 

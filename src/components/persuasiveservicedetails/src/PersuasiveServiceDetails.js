@@ -167,6 +167,20 @@ export default class PersuasiveServiceDetails extends HTMLElement {
                         grid-column-gap: 0.99%;
                         grid-row-gap: 83px;
                     }
+
+                    :host([displayoff=".group-2"]) {
+                        padding-bottom: 120px;
+                        padding-top: 120px;
+                        padding-left: 20.182%;
+                        padding-right: 20.312%;
+                    }
+
+                    :host([displayoff=".group-2"]) > #detailsContainer {
+                        grid-template-columns: minmax(91.4px, 457px);
+                        grid-auto-rows: auto;
+                        grid-row-gap: 80px;
+                        justify-content: center;
+                    }
                 }
             </style>`;
     }
@@ -178,14 +192,15 @@ export default class PersuasiveServiceDetails extends HTMLElement {
                     :host {
                         padding-bottom: 91px;
                         padding-top: 64px;
-                        padding-left: 8.8%;
-                        padding-right: 8.8%;
                     }
 
                     #detailsContainer {
-                        grid-template-columns: repeat(1, 100%);
+                        grid-template-columns: 1fr;
                         grid-auto-rows: auto;
                         grid-row-gap: 56px;
+                        max-width: 310px;
+                        margin-left: auto;
+                        margin-right: auto;
                     }
                 }
             </style>`;

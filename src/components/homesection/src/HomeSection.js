@@ -20,11 +20,11 @@ export default class HomeSection extends HTMLElement {
     }
 
     html()  {
-        let html = ``;
-        html += `<hero-section></hero-section>`;
-        html += `<div id="storyCardsContainer">${storyCardGenerator("home", cardMetaData)}</div>`;
-        html += `<persuasive-service-details displayOff=".group-2"></persuasive-service-details>`;
-        this.shadowRoot.innerHTML += html;
+        this.shadowRoot.innerHTML += `
+            <hero-section></hero-section>
+            <div id="storyCardsContainer">${storyCardGenerator("home", cardMetaData)}</div>
+            <persuasive-service-details displayOff=".group-2"></persuasive-service-details>
+        `;
     }
 
     css() {
