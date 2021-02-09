@@ -10,7 +10,8 @@
     "build-assets": "cp -r ./src/assets ./dist/src/",
     "build-data": "cp -r ./src/data ./dist/src/",
     "build-photosnapp": "./node_modules/.bin/rollup src/components/photosnapapp/src/PhotosnapApp.js --file dist/src/components/photosnapapp/src/PhotosnapApp.js --format umd --name photosnappapp -m",
-    "build-rollup": "npm run build-html && npm run build-css && npm run build-assets && npm run build-data && npm run build-photosnapp"
+    "build-terser": "./node_modules/.bin/terser ./dist/src/components/photosnapapp/src/PhotosnapApp.js -o ./dist/src/components/photosnapapp/src/PhotosnapApp.js -m",
+    "build-rollup": "npm run build-html && npm run build-css && npm run build-assets && npm run build-data && npm run build-photosnapp && npm run build-terser"
   },
   "keywords": [],
   "author": "",
