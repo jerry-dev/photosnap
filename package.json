@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-html": "cp -r ./public ./dist",
+    "build-html": "cp ./public/index.html ./dist",
     "build-css": "cp -r ./src/stylesheets ./dist/src",
     "build-assets": "cp -r ./src/assets ./dist/src/",
     "build-data": "cp -r ./src/data ./dist/src/",
