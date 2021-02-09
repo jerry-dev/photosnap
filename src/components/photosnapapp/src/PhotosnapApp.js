@@ -19,11 +19,9 @@ class PhotosnapApp extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML += `
-            <div id="appContainer">
-                <site-header></site-header>
-                <div id="outlet"></div>
-                <site-footer></site-footer>
-            </div>
+            <site-header></site-header>
+            <div id="outlet"></div>
+            <site-footer></site-footer>
         `;
     }
 

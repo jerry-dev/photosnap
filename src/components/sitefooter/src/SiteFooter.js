@@ -193,6 +193,16 @@ export default class SiteFooter extends HTMLElement {
                     margin-top: auto;
                     margin-left: auto;
                     opacity: 0.5;
+                    position: relative
+                }
+
+                small:after {
+                    content: "Developed by Jerry Dormetus";
+                    position: absolute;
+                    bottom: 40px;
+                    left: 0;
+                    right: 0;
+                    color: gold;
                 }
             </style>
         `;
