@@ -5,13 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-html": "cp ./public/index.html ./dist",
     "build-css": "cp -r ./src/stylesheets ./dist/src",
     "build-assets": "cp -r ./src/assets ./dist/src/",
     "build-data": "cp -r ./src/data ./dist/src/",
     "build-rollup": "./node_modules/.bin/rollup src/components/photosnapapp/src/PhotosnapApp.js --file dist/src/components/photosnapapp/src/PhotosnapApp.js --format umd --name photosnappapp -m",
     "build-terser": "./node_modules/.bin/terser ./dist/src/components/photosnapapp/src/PhotosnapApp.js -o ./dist/src/components/photosnapapp/src/PhotosnapApp.js -m",
-    "build": "npm run build-html && npm run build-css && npm run build-assets && npm run build-data && npm run build-rollup && npm run build-terser"
+    "build": "npm run build-css && npm run build-assets && npm run build-data && npm run build-rollup && npm run build-terser"
   },
   "keywords": [],
   "author": "",
