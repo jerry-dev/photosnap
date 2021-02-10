@@ -27,7 +27,7 @@ class PhotosnapApp extends HTMLElement {
 
     routerInitialize() {
         const outlet = this.shadowRoot.querySelector('#outlet');
-        const router = new Router(outlet);
+        const router = new Router(outlet, {baseUrl: 'https://project-photosnap.netlify.app/'});
 
         router.setRoutes([
             { path: '/', component: 'home-section' },
