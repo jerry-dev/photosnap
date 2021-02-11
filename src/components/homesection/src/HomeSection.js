@@ -22,7 +22,7 @@ export default class HomeSection extends HTMLElement {
     html()  {
         this.shadowRoot.innerHTML += `
             <hero-section></hero-section>
-            <div id="storyCardsContainer">${storyCardGenerator("home", cardMetaData)}</div>
+            <div id="storyCardsContainer">${storyCardGenerator("home", cardMetaData, "time")}</div>
             <persuasive-service-details displayOff=".group-2"></persuasive-service-details>
         `;
     }

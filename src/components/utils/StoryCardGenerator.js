@@ -1,6 +1,6 @@
 
 
-const storyCardGenerator = (section, metaData) => {
+const storyCardGenerator = (section, metaData, displayOff = null) => {
     let html = ``;
 
     for (let i = 0; i < metaData.length; i++) {
@@ -15,6 +15,7 @@ const storyCardGenerator = (section, metaData) => {
             desktopImage="${metaData[i].desktopImage}"
             tabletImage="${metaData[i].tabletImage}"
             mobileImage="${metaData[i].mobileImage}"
+            displayOff=${displayOff}
         ></story-card>`;
     }
 

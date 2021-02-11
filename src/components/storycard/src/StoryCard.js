@@ -113,6 +113,10 @@ export default class StoryCard extends HTMLElement {
                 margin-right: auto;
                 white-space: nowrap;
             }
+
+            ${this.getAttribute("displayOff")} {
+                 display: none;
+             }
             </style>
         `;
     }
