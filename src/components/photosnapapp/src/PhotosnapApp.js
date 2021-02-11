@@ -6,6 +6,10 @@ import FeaturesSection from '../../featuressection/src/FeaturesSection.js';
 import SiteFooter from '../../sitefooter/src/SiteFooter.js';
 import PricingDetails from '../../pricingdetails/src/PricingDetails.js';
 
+const handleClick = () => {
+    Router.go('/');
+  };
+
 class PhotosnapApp extends HTMLElement {
     constructor() {
         super();
@@ -27,7 +31,7 @@ class PhotosnapApp extends HTMLElement {
 
     routerInitialize() {
         const outlet = this.shadowRoot.querySelector('#outlet');
-        const router = new Router(outlet, {baseUrl: 'https://project-photosnap.netlify.app'});
+        const router = new Router(outlet);
 
         router.setRoutes([
             { path: '/', component: 'home-section' },
