@@ -302,6 +302,12 @@ export default class SiteHeader extends HTMLElement {
                 }
             });
 
+            window.addEventListener('scroll', () => {
+                if (this.isMobileMenuOpen()) {
+                    this.closeMobileMenu();
+                }
+            });
+
             window.addEventListener('resize', () => {
                 if (this.isMobileMenuOpen() && window.innerWidth > 700) {
                     this.closeMobileMenu();
