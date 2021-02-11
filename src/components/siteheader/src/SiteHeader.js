@@ -61,6 +61,7 @@ export default class SiteHeader extends HTMLElement {
 
                 :host {
                     display: block;
+                    max-height: 72px;
                     max-width: 100%;
                     padding-top: 28px;
                     padding-bottom: 28px;
@@ -98,6 +99,7 @@ export default class SiteHeader extends HTMLElement {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                    max-height: 16px;
                 }
 
                 :host > #siteHeaderContainer > ul, 
@@ -147,6 +149,11 @@ export default class SiteHeader extends HTMLElement {
 
                 :host > #siteHeaderContainer > #menuIconContainer {
                     display: none;
+                    cursor: pointer;
+                    padding-bottom: 2%;
+                    padding-top: 2%;
+                    padding-left: 2%;
+                    padding-right: 2%;
                 }
             </style>
         `;
@@ -217,6 +224,9 @@ export default class SiteHeader extends HTMLElement {
 
                     :host > #siteHeaderContainer > #menuIconContainer {
                         display: block;
+                        display: flex;
+                        justify-content: center;
+                        align-content: center;
                     }
 
                     :host > #siteHeaderContainer > #menuIconContainer > #menuCloseIcon {
@@ -288,7 +298,9 @@ export default class SiteHeader extends HTMLElement {
         this.shadowRoot.addEventListener('click', (event) => {
             const { id } = event.target;
             switch (id) {
-                case 'dropDownGroup': this.toggleMobileMenu();
+                case 'dropDownGroup':
+                case 'menuIconContainer':
+                    this.toggleMobileMenu();
                 break;
                 case 'menuOpenIcon': this.openMobileMenu();
                 break;
