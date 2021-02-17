@@ -27,7 +27,8 @@ class PhotosnapApp extends HTMLElement {
 
     routerInit() {
         const route = this.shadowRoot.querySelector('#route')
-        const router = new Navigo("/", true, '#!');
+        const router = new Navigo(window.location.origin, true, '#!');
+        console.log(window.location.origin);
 
         router
             .on({
