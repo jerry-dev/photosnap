@@ -30,7 +30,7 @@ export default class HeroSection extends HTMLElement {
                             storytellsers. We make it easy to share photos, tell
                             stories and connect with others.
                         </p>
-                        <a id="cta" href="#000">
+                        <a id="cta" href="#0000">
                             <p>GET AN INVITE</p>
                             <img class="arrowIcon" src="../src/assets/shared/desktop/white/arrow.svg">
                         </a>
@@ -50,7 +50,7 @@ export default class HeroSection extends HTMLElement {
                             and media from other networks. Then share your
                             story with everyone.
                         </p>
-                        <a id="cta" href="#000">
+                        <a id="cta" href="#!/stories">
                             <p>VIEW THE STORIES</p>
                             <img class="arrowIcon" src="../src/assets/shared/desktop/arrow.svg">
                         </a>
@@ -66,7 +66,7 @@ export default class HeroSection extends HTMLElement {
                             Photosnap can help you create stories that resonate with your audience.  Our tool is designed for
                             photographers of all levels, brands, businesses you name it. 
                         </p>
-                        <a id="cta" href="#000">
+                        <a id="cta" href="#!/stories">
                             <p>VIEW THE STORIES</p>
                             <img class="arrowIcon" src="../src/assets/shared/desktop/arrow.svg">
                         </a>

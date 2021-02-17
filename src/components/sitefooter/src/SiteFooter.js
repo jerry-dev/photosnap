@@ -29,9 +29,9 @@ export default class SiteFooter extends HTMLElement {
                 </svg>
                 <ul id="pageLinks">
                     <li><a href="/">HOME</a></li>
-                    <li><a href="/stories">STORIES</a></li>
-                    <li><a href="/features">FEATURES</a></li>
-                    <li><a href="/pricing">PRICING</a></li>
+                    <li><a href="#!/stories">STORIES</a></li>
+                    <li><a href="#!/features">FEATURES</a></li>
+                    <li><a href="#!/pricing">PRICING</a></li>
                 </ul>
                 <a id="cta" href="#000">
                     <p>GET AN INVITE</p>

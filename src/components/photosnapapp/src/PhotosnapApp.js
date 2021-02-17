@@ -1,14 +1,10 @@
-import {Router} from '../../utils/router/dist/vaadin-router.js';
+import Navigo from 'https://unpkg.com/navigo@7.1.2/lib/navigo.es.js';
 import SiteHeader from '../../siteheader/src/SiteHeader.js';
 import HomeSection from '../../homesection/src/HomeSection.js';
 import StoriesSection from '../../storiessection/src/StoriesSection.js';
 import FeaturesSection from '../../featuressection/src/FeaturesSection.js';
 import SiteFooter from '../../sitefooter/src/SiteFooter.js';
 import PricingDetails from '../../pricingdetails/src/PricingDetails.js';
-
-const handleClick = () => {
-    Router.go('/');
-  };
 
 class PhotosnapApp extends HTMLElement {
     constructor() {
@@ -18,27 +14,42 @@ class PhotosnapApp extends HTMLElement {
 
     connectedCallback() {
         this.render();
-        this.routerInitialize();
+        this.routerInit();
     }
 
     render() {
         this.shadowRoot.innerHTML += `
             <site-header></site-header>
-            <div id="outlet"></div>
+            <div id="route"></div>
             <site-footer></site-footer>
         `;
     }
 
-    routerInitialize() {
-        const outlet = this.shadowRoot.querySelector('#outlet');
-        const router = new Router(outlet);
+    routerInit() {
+        const route = this.shadowRoot.querySelector('#route')
+        const router = new Navigo(window.location.origin, true, '#!');
 
-        router.setRoutes([
-            { path: '/', component: 'home-section' },
-            { path: '/stories', component: 'stories-section' },
-            { path: '/features', component: 'features-section' },
-            { path: '/pricing', component: 'pricing-details' },
-        ]);
+        router
+            .on({
+                '/': {
+                    as: 'home',
+                    uses: () => route.innerHTML = `<home-section></home-section>`
+                },
+                '/stories': {
+                    as: 'stories',
+                    uses: () => route.innerHTML = `<stories-section></stories-section>`
+                },
+                '/features': {
+                    as: 'features',
+                    uses: () => route.innerHTML = `<features-section></features-section>`
+                },
+                '/pricing': {
+                    as: 'pricing', uses: () => route.innerHTML = `<pricing-details></pricing-details>`
+                },
+                '*': () => route.innerHTML = `<home-section></home-section>`
+        });
+
+        router.resolve();
     }
 }
 
