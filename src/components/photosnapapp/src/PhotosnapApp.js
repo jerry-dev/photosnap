@@ -1,4 +1,4 @@
-import Navigo from 'https://unpkg.com/navigo@7.1.2/lib/navigo.es.js';
+import Navigo from '../../utils/router/navigo.es.js';
 import SiteHeader from '../../siteheader/src/SiteHeader.js';
 import HomeSection from '../../homesection/src/HomeSection.js';
 import StoriesSection from '../../storiessection/src/StoriesSection.js';
@@ -28,7 +28,6 @@ class PhotosnapApp extends HTMLElement {
     routerInit() {
         const route = this.shadowRoot.querySelector('#route')
         const router = new Navigo(window.location.origin, true, '#!');
-        console.log(window.location.origin);
 
         router
             .on({
